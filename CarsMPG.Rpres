@@ -1,0 +1,41 @@
+Cars MPG
+========================================================
+author: 
+date: 
+autosize: true
+
+Summary
+========================================================
+
+This interactive web application searches through **mtcars** data collection  and returns the list of cars that meet your selection criteria, and provides in summary of the car model with the most efficient MPG.  
+
+  1. As you change your selection, it automatically adjusts the results.
+  2. It is intuitive, fast and easy to use.  
+  3. Click Here:  <https://mdrobish.shinyapps.io/carsMPG/>.
+
+
+DataSet
+========================================================
+Below is a sample data of **mtcars** data, which has been cleaned and modified for this web application
+
+
+```{r echo=FALSE}
+mpgData <- mtcars
+mpgData$am <- factor(mpgData$am, labels = c("Automatic", "Manual"))
+mpgData$vs <- factor(mpgData$vs, labels = c("V", "S"))
+mpgData$model <- row.names(mpgData)
+mpgData <- mpgData[,c("am", "vs", "cyl", "gear", "mpg")]
+head(mpgData)
+```
+
+UI Screen - Input
+========================================================
+You can change the search criteria easily adjusting UI widgets.  And, the application returns the results interactively.
+
+![Web UI](Summary.PNG)
+
+UI Screen - List of Automobiles
+========================================================
+You can also see the list of other cars meet your input criteria
+
+![Web Output List](List.PNG)
